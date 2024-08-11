@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-primary-font text-base leading-none bg-primary text-white select-none;
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+}
+
+@layer components {
+  .contentWrapper {
+    @apply w-full max-w-[1200px] my-0 mx-auto py-0 px-5;
+  }
+
+  .lazy-load-image-background {
+    @apply w-full h-full aspect-[1_/_1.5];
+    img {
+      @apply w-full h-full object-cover object-center;
+    }
+  }
+
+  .opacity-layer {
+    @apply w-full h-[250px] absolute left-0 bottom-0;
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
+  }
+
+  .gradient {
+    @apply bg-[linear-gradient(98.37deg,#f89e00_0.99%,#da2f68_100%)];
+  }
+
+  .searchBar,
+  .menuBar {
+    @apply animate-[mobileMenu_0.3s_ease_forwards];
+  }
+
+  @keyframes mobileMenu {
+    0% {
+      @apply translate-y-[-130%];
+    }
+    100% {
+      @apply translate-y-0;
+    }
+  }
+
+  .top {
+    @apply backdrop-blur-[3.5px];
+    background: rgba(0, 0, 0, 0.25);
+  }
+  .show {
+    @apply bg-third;
+  }
+  .hide {
+    @apply translate-y-[-60px];
+  }
+
+  .CircularProgressbar-text {
+    @apply font-bold;
+  }
+
+  .swiper .swiper-wrapper {
+    @apply w-full md:w-[216px];
+  }
+
+  .movix-swiper .swiper .swiper-wrapper {
+    @apply w-full md:w-[25%];
+  }
+
+  .swiper .swiper-wrapper .swiper-slide {
+    @apply w-full;
+  }
+
+  .movix-swiper .swiper-button-prev,
+  .movix-swiper .swiper-button-next {
+    @apply text-white w-[28px] h-[66px] transition-all rounded-md bg-primary bg-opacity-10;
+    &:hover {
+      @apply gradient text-white transition-all;
+    }
+    &::after {
+      @apply text-[20px] font-semibold;
+    }
+  }
+  .movix-swiper .swiper-button-prev {
+    left: 0;
+  }
+
+  .movix-swiper .swiper-button-next {
+    right: 0;
+  }
+
+  .react-select-container {
+    &.genresDD {
+      @apply md:max-w-[500px] min-w-[250px] w-full;
+    }
+    &.sortbyDD {
+      @apply md:w-[250px] w-full shrink-0;
+    }
+    .react-select__control {
+      @apply bg-black-light border-none outline-none shadow-none rounded-[20px];
+      .react-select__value-container {
+        .react-select__placeholder,
+        .react-select__input-container {
+          @apply text-white mx-[10px];
+        }
+      }
+      .react-select__single-value {
+        @apply text-white;
+      }
+      .react-select__multi-value {
+        @apply bg-third rounded-[10px];
+        .react-select__multi-value__label {
+          @apply text-white;
+        }
+        .react-select__multi-value__remove {
+          @apply cursor-pointer text-white bg-transparent;
+          &:hover {
+            @apply text-black-lighter;
+          }
+        }
+      }
+    }
+    .react-select__menu {
+      @apply top-10 m-0 p-0 text-primary;
+    }
+  }
+
+  .pagination {
+    @apply flex items-center justify-center flex-wrap gap-5;
+    .page-item .page-link {
+      @apply flex items-center justify-center text-base transition-all duration-[0.2s] ease-linear px-[15px] py-2.5 rounded-[5px] bg-pink-color border-2 border-transparent;
+    }
+    .page-item.active .page-link {
+      @apply bg-primary border-2 border-white;
+    }
+    .page-item.disabled .page-link {
+      @apply invisible;
+    }
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden bg-[#0a2955];
+    &::after {
+      @apply content-[""] absolute -translate-x-full animate-[shimmer_2s_infinite] inset-0;
+      background-image: linear-gradient(
+        90deg,
+        rgba(#193763, 0) 0,
+        rgba(#193763, 0.2) 20%,
+        rgba(#193763, 0.5) 60%,
+        rgba(#193763, 0)
+      );
+    }
+
+    @keyframes shimmer {
+      100% {
+        @apply translate-x-full;
+      }
+    }
+  }
+}
